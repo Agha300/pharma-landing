@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>pharma-landing</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- navbar start -->
+    <nav>
+        <ul class="menu">
+            <li class="logo">
+                <a href="#"><img style="height: 50px; width: 100px;" src="assets/logos/logo.png" alt=""></a>
+            </li>
+            <li class="item"><a href="#">home</a></li>
+            <li class="item"><a href="#">international division</a></li>
+            <li class="item has-submenu">
+                <a tabindex="0">About</a>
+                <ul class="submenu">
+                    <li class="subitem"><a href="#">Ceo Message/a></li>
+                    <li class="subitem"><a href="#">Vision & Mission</a></li>
+                    <li class="subitem"><a href="#">Scope</a></li>
+                    <li class="subitem"><a href="#">Our History</a></li>
+                </ul>
+            </li>
+            <li class="item has-submenu">
+                <a tabindex="0">Manufacturing</a>
+                <ul class="submenu">
+                    <li class="subitem"><a href="#">Our facilities</a></li>
+                    <li class="subitem"><a href="#">Quality Policy</a></li>
+                    <li class="subitem"><a href="#">Products</a></li>
+                </ul>
+            </li>
+            <li class="item"><a href="#">Blog</a></li>
+            <li class="item"><a href="#">Contact</a>
+            </li>
+            <li class="item button"><a href="#">Log In</a></li>
+            <li class="item button secondary"><a href="#">Sign Up</a></li>
+            <li class="toggle"><a href="#"><i class="fas fa-bars"></i></a></li>
+        </ul>
+    </nav>
+
+    <script>
+        const toggle = document.querySelector(".toggle");
+        const menu = document.querySelector(".menu");
+        const items = document.querySelectorAll(".item");
+
+        /* Toggle mobile menu */
+        function toggleMenu() {
+            if (menu.classList.contains("active")) {
+                menu.classList.remove("active");
+                toggle.querySelector("a").innerHTML = "<i class='fas fa-bars'></i>";
+            } else {
+                menu.classList.add("active");
+                toggle.querySelector("a").innerHTML = "<i class='fas fa-times'></i>";
+            }
+        }
+
+        /* Activate Submenu */
+        function toggleItem() {
+            if (this.classList.contains("submenu-active")) {
+                this.classList.remove("submenu-active");
+            } else if (menu.querySelector(".submenu-active")) {
+                menu.querySelector(".submenu-active").classList.remove("submenu-active");
+                this.classList.add("submenu-active");
+            } else {
+                this.classList.add("submenu-active");
+            }
+        }
+
+        /* Close Submenu From Anywhere */
+        function closeSubmenu(e) {
+            let isClickInside = menu.contains(e.target);
+
+            if (!isClickInside && menu.querySelector(".submenu-active")) {
+                menu.querySelector(".submenu-active").classList.remove("submenu-active");
+            }
+        }
+        /* Event Listeners */
+        toggle.addEventListener("click", toggleMenu, false);
+        for (let item of items) {
+            if (item.querySelector(".submenu")) {
+                item.addEventListener("click", toggleItem, false);
+            }
+            item.addEventListener("keypress", toggleItem, false);
+        }
+        document.addEventListener("click", closeSubmenu, false);
+    </script>
+
+
+
+    <!-- navbar end -->
+    <!-- hero carousel start -->
+    <div class="slider-container">
+        <div class="slide">
+
+            <img style="margin-left: 800px;" src="assets/background/istockphoto-1133376756-612x612.jpg" alt="" />
+
+        </div>
+        <div style=" text-align: center; font-size: 16px;  background-color: #43c7d7; height: 200px; width: 200px; position: absolute; z-index: 1; top: 250px; left: 200px; color: #000;">
+            <h1 style="color: white;">ABOUT HILTON
+            </h1>
+            <div style="background-color: #4a308d; width: 600px; height: 200px; color:#fff; padding-top: 20px; ">
+                <p>BUSINESS SCOPE
+                </p>
+                <p>We market products under license from more than a dozen world-renowned research based pharmaceutical companies besides our own branded generic specialties. Hilton Pharma is one of the leading pharma companies of Pakistan. Since its inception,
+                    Hilton Pharma has mainly promoted research based pharmaceutical products…
+
+                </p>
+            </div>
+        </div>
+        <div class="slide">
+
+            <img style="margin-left: 500px;" src="assets/background/istockphoto-1254455215-612x612-removebg-preview.png" alt="" />
+            <div style=" text-align: center; font-size: 16px;   background-color:#43c7d7; height: 200px; width: 300px; position: absolute; z-index: 1; top: 250px; left: 1600px; color: #000;">
+                <h1 style="color: white;">MANUFACTURING
+
+                </h1>
+                <div style="background-color: #4a308d; width: 600px; height: 200px; color:#fff; padding-top: 20px; ">
+                    <p>OUR QUALITY POLICY
+
+                    </p>
+                    <p>
+                        Our health care products are a reflection of our pre-set safety and quality standards bound by stringent regulatory guidelines. Our manufacturing processes are performed under qualified supervision ensuring efficiency and productivity at all levels.
+
+
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="slide">
+
+            <img style="margin-left: 700px;" src="assets/background/recruitment-concept-human-resources-flat-design.jpg" alt="" />
+            <div style=" text-align: center; font-size: 16px;  background-color: #43c7d7; height: 200px; width: 200px; position: absolute; z-index: 1; top: 250px; left: 3100px; color: #000;">
+                <h1 style="color: white;">HUMAN RESOURCE
+
+                </h1>
+                <div style="background-color: #4a308d; width: 600px; height: 200px;  color: #fff; padding-top: 20px;">
+                    <p>TRAINING AND DEVELOPMENT
+
+                    </p>
+                    <p>
+                        We put very high emphasis on training and development. We have regular in-house and external training programs. We ensure that our team members get opportunity to prove their strengths and capabilities and acquire the right skills and learning.
+
+
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        const slider = document.querySelector(".slider-container"),
+            slides = Array.from(document.querySelectorAll(".slide"));
+
+        let isDragging = false,
+            startPos = 0,
+            currentTranslate = 0,
+            prevTranslate = 0,
+            animationID = 0,
+            currentIndex = 0;
+
+        // Disable context menu
+        window.oncontextmenu = (event) => {
+            event.preventDefault();
+            event.stopPropagation();
+            return false;
+        };
+
+        const getPositionX = (event) =>
+            event.type.includes("mouse") ? event.pageX : event.touches[0].clientX;
+
+        const setSliderPosition = () => {
+            slider.style.transform = `translateX(${currentTranslate}px)`;
+        };
+
+        const animation = () => {
+            setSliderPosition();
+            if (isDragging) requestAnimationFrame(animation);
+        };
+
+        const setPositionByIndex = () => {
+            currentTranslate = currentIndex * -window.innerWidth;
+            prevTranslate = currentTranslate;
+            setSliderPosition();
+        };
+
+        const touchStart = (index) => {
+            return (event) => {
+                currentIndex = index;
+                startPos = getPositionX(event);
+                isDragging = true;
+                // https://css-tricks.com/using-requestanimationframe/
+                animationID = requestAnimationFrame(animation);
+                slider.classList.add("grabbing");
+            };
+        };
+
+        const touchEnd = () => {
+            isDragging = false;
+            cancelAnimationFrame(animationID);
+            const movedBy = currentTranslate - prevTranslate;
+            if (movedBy < -100 && currentIndex < slides.length - 1) currentIndex += 1;
+            if (movedBy > 100 && currentIndex > 0) currentIndex -= 1;
+            setPositionByIndex();
+            slider.classList.remove("grabbing");
+        };
+
+        const touchMove = (event) => {
+            if (isDragging) {
+                const currentPosition = getPositionX(event);
+                currentTranslate = prevTranslate + currentPosition - startPos;
+            }
+        };
+
+        slides.forEach((slide, index) => {
+            const slideImage = slide.querySelector("img");
+            slideImage.addEventListener("dragstart", (e) => e.preventDefault());
+            // Touch events
+            slide.addEventListener("touchstart", touchStart(index));
+            slide.addEventListener("touchend", touchEnd);
+            slide.addEventListener("touchmove", touchMove);
+            // Mouse events
+            slide.addEventListener("mousedown", touchStart(index));
+            slide.addEventListener("mouseup", touchEnd);
+            slide.addEventListener("mouseleave", touchEnd);
+            slide.addEventListener("mousemove", touchMove);
+        });
+    </script>
+
+    <!-- hero carasouel end -->
+
+
+    <!-- text part start -->
+    <div class="background-1" style="height: 500px; width: 100%; background-repeat: no-repeat; margin-bottom: -110px;">
+
+    </div>
+    <div class="cc">
+        <h2 class="title-hil" style="color:#fff;">WORKING TOWARDS A HEALTHY FUTURE
+        </h2>
+
+        <div class="text-part">
+
+            <p>Hilton Pharma is a member of the Progressive Group of Companies. Combining the best of values, entrepreneurship, strong work ethics, strict compliance with current Good Manufacturing Practices (cGMP) and wide range of products, Hilton Pharma
+                has emerged as one of the largest pharma companies in Pakistan. We market products under license from more than a dozen world-renowned research based pharmaceutical companies besides our own branded generic specialties.
+            </p>
+
+            <br>
+
+            <p>
+                Since its inception, Hilton Pharma has mainly promoted research based pharmaceutical products. Company’s innovative marketing strategies together with its strong marketing base have helped our products to be significantly positioned in their respective
+                therapeutic areas.
+
+
+
+            </p>
+            <!-- 
+            <p class="disc-hil">Hilton Pharma is a member of the Progressive Group of Companies. Combining the best of values, entrepreneurship, strong work ethics, strict compliance with current Good Manufacturing Practices (cGMP) and wide range of products, Hilton Pharma
+                has emerged as one of the largest pharma companies in Pakistan.
+            </p>
+            <p class="disc-hil">We market products under license from more than a dozen world-renowned research based pharmaceutical companies besides our own branded generic specialties.</p>
+
+            <p class="disc-hil">Since its inception, Hilton Pharma has mainly promoted research based pharmaceutical products. Company’s innovative marketing strategies together with its strong marketing base have helped our products to be significantly positioned in their
+                respective therapeutic areas.</p> -->
+            <div class="center"> <button class="btn-1">Read More</button></div>
+
+        </div>
+        <!-- text part end -->
+
+        <!-- messages part start -->
+
+
+
+
+
+
+
+
+
+
+
+        <!-- messages part end -->
+
+
+
+        <!-- image grid start -->
+        <div class="content">
+            <!-- <h2>Julia</h2> -->
+            <div class="grid">
+                <figure class="effect-julia">
+                    <img src="https://tympanus.net/Development/HoverEffectIdeas/img/21.jpg" alt="img21" />
+                    <figcaption>
+                        <h2> <span>MANUFACTURING</span></h2>
+                        <div>
+                            <p>Materializing our quality mission into a</p>
+                            <p>state-of-art facility that is capable…</p>
+                            <p>And dives into the morning light</p>
+                        </div>
+                        <a href="#">View more</a>
+                    </figcaption>
+                </figure>
+                <figure class="effect-julia">
+                    <img src="https://tympanus.net/Development/HoverEffectIdeas/img/22.jpg" alt="img22" />
+                    <figcaption>
+                        <h2> <span>OUR STRENGTH
+                        </span></h2>
+                        <div>
+                            <p>After establishing our strength in local</p>
+                            <p>pharmaceutical industry, we began spr…</p>
+                            <p>And dives into the morning light</p>
+                        </div>
+                        <a href="#">View more</a>
+                    </figcaption>
+                </figure>
+            </div>
+            <!-- <h2>Goliath</h2>
+            <div class="grid">
+                <figure class="effect-goliath">
+                    <img src="https://tympanus.net/Development/HoverEffectIdeas/img/23.jpg" alt="img23" />
+                    <figcaption>
+                        <h2>Thoughtful <span>Goliath</span></h2>
+                        <p>When Goliath comes out, you should run.</p>
+                        <a href="#">View more</a>
+                    </figcaption>
+                </figure>
+                <figure class="effect-goliath">
+                    <img src="https://tympanus.net/Development/HoverEffectIdeas/img/24.jpg" alt="img24" />
+                    <figcaption>
+                        <h2>Thoughtful <span>Goliath</span></h2>
+                        <p>When Goliath comes out, you should run.</p>
+                        <a href="#">View more</a>
+                    </figcaption>
+                </figure>
+            </div> -->
+            <!-- <h2>Hera</h2>
+            <div class="grid">
+                <figure class="effect-hera">
+                    <img src="https://tympanus.net/Development/HoverEffectIdeas/img/17.jpg" alt="img17" />
+                    <figcaption>
+                        <h2>Tender <span>Hera</span></h2>
+                        <p>
+                            <a href="#"><i class="fa fa-fw fa-file-pdf-o"></i></a>
+                            <a href="#"><i class="fa fa-fw fa-file-image-o"></i></a>
+                            <a href="#"><i class="fa fa-fw fa-file-archive-o"></i></a>
+                            <a href="#"><i class="fa fa-fw fa-file-code-o"></i></a>
+                        </p>
+                    </figcaption>
+                </figure>
+                <figure class="effect-hera">
+                    <img src="https://tympanus.net/Development/HoverEffectIdeas/img/25.jpg" alt="img25" />
+                    <figcaption>
+                        <h2>Tender <span>Hera</span></h2>
+                        <p>
+                            <a href="#"><i class="fa fa-fw fa-file-pdf-o"></i></a>
+                            <a href="#"><i class="fa fa-fw fa-file-image-o"></i></a>
+                            <a href="#"><i class="fa fa-fw fa-file-archive-o"></i></a>
+                            <a href="#"><i class="fa fa-fw fa-file-code-o"></i></a>
+                        </p>
+                    </figcaption>
+                </figure>
+            </div>
+            <h2>Winston</h2>
+            <div class="grid">
+                <figure class="effect-winston">
+                    <img src="https://tympanus.net/Development/HoverEffectIdeas/img/30.jpg" alt="img30" />
+                    <figcaption>
+                        <h2>Jolly <span>Winston</span></h2>
+                        <p>
+                            <a href="#"><i class="fa fa-fw fa-star-o"></i></a>
+                            <a href="#"><i class="fa fa-fw fa-comments-o"></i></a>
+                            <a href="#"><i class="fa fa-fw fa-envelope-o"></i></a>
+                        </p>
+                    </figcaption>
+                </figure>
+                <figure class="effect-winston">
+                    <img src="https://tympanus.net/Development/HoverEffectIdeas/img/1.jpg" alt="img01" />
+                    <figcaption>
+                        <h2>Jolly <span>Winston</span></h2>
+                        <p>
+                            <a href="#"><i class="fa fa-fw fa-star-o"></i></a>
+                            <a href="#"><i class="fa fa-fw fa-comments-o"></i></a>
+                            <a href="#"><i class="fa fa-fw fa-envelope-o"></i></a>
+                        </p>
+                    </figcaption>
+                </figure>
+            </div> -->
+            <!-- <h2>Selena</h2>
+            <div class="grid">
+                <figure class="effect-selena">
+                    <img src="https://tympanus.net/Development/HoverEffectIdeas/img/10.jpg" alt="img10" />
+                    <figcaption>
+                        <h2>Happy <span>Selena</span></h2>
+                        <p>Selena is a tiny-winged bird.</p>
+                        <a href="#">View more</a>
+                    </figcaption>
+                </figure>
+                <figure class="effect-selena">
+                    <img src="https://tympanus.net/Development/HoverEffectIdeas/img/31.jpg" alt="img31" />
+                    <figcaption>
+                        <h2>Happy <span>Selena</span></h2>
+                        <p>Selena is a tiny-winged bird.</p>
+                        <a href="#">View more</a>
+                    </figcaption>
+                </figure>
+            </div>
+            <h2>Terry</h2>
+            <div class="grid">
+                <figure class="effect-terry">
+                    <img src="https://tympanus.net/Development/HoverEffectIdeas/img/16.jpg" alt="img16" />
+                    <figcaption>
+                        <h2>Noisy <span>Terry</span></h2>
+                        <p>
+                            <a href="#"><i class="fa fa-fw fa-download"></i></a>
+                            <a href="#"><i class="fa fa-fw fa-heart"></i></a>
+                            <a href="#"><i class="fa fa-fw fa-share"></i></a>
+                            <a href="#"><i class="fa fa-fw fa-tags"></i></a>
+                        </p>
+                    </figcaption>
+                </figure>
+                <figure class="effect-terry">
+                    <img src="https://tympanus.net/Development/HoverEffectIdeas/img/26.jpg" alt="img26" />
+                    <figcaption>
+                        <h2>Noisy <span>Terry</span></h2>
+                        <p>
+                            <a href="#"><i class="fa fa-fw fa-download"></i></a>
+                            <a href="#"><i class="fa fa-fw fa-heart"></i></a>
+                            <a href="#"><i class="fa fa-fw fa-share"></i></a>
+                            <a href="#"><i class="fa fa-fw fa-tags"></i></a>
+                        </p>
+                    </figcaption>
+                </figure>
+            </div>
+            <h2>Phoebe</h2>
+            <div class="grid">
+                <figure class="effect-phoebe">
+                    <img src="https://tympanus.net/Development/HoverEffectIdeas/img/3.jpg" alt="img03" />
+                    <figcaption>
+                        <h2>Plain <span>Phoebe</span></h2>
+                        <p>
+                            <a href="#"><i class="fa fa-fw fa-user"></i></a>
+                            <a href="#"><i class="fa fa-fw fa-heart"></i></a>
+                            <a href="#"><i class="fa fa-fw fa-cog"></i></a>
+                        </p>
+                    </figcaption>
+                </figure>
+                <figure class="effect-phoebe">
+                    <img src="https://tympanus.net/Development/HoverEffectIdeas/img/7.jpg" alt="img07" />
+                    <figcaption>
+                        <h2>Plain <span>Phoebe</span></h2>
+                        <p>
+                            <a href="#"><i class="fa fa-fw fa-user"></i></a>
+                            <a href="#"><i class="fa fa-fw fa-heart"></i></a>
+                            <a href="#"><i class="fa fa-fw fa-cog"></i></a>
+                        </p>
+                    </figcaption>
+                </figure>
+            </div>
+            <h2>Apollo</h2>
+            <div class="grid">
+                <figure class="effect-apollo">
+                    <img src="https://tympanus.net/Development/HoverEffectIdeas/img/18.jpg" alt="img18" />
+                    <figcaption>
+                        <h2>Strong <span>Apollo</span></h2>
+                        <p>Apollo's last game of pool was so strange.</p>
+                        <a href="#">View more</a>
+                    </figcaption>
+                </figure>
+                <figure class="effect-apollo">
+                    <img src="https://tympanus.net/Development/HoverEffectIdeas/img/22.jpg" alt="img22" />
+                    <figcaption>
+                        <h2>Strong <span>Apollo</span></h2>
+                        <p>Apollo's last game of pool was so strange.</p>
+                        <a href="#">View more</a>
+                    </figcaption>
+                </figure>
+            </div>
+            <h2>Kira</h2>
+            <div class="grid">
+                <figure class="effect-kira">
+                    <img src="https://tympanus.net/Development/HoverEffectIdeas/img/17.jpg" alt="img17" />
+                    <figcaption>
+                        <h2>Dark <span>Kira</span></h2>
+                        <p>
+                            <a href="#"><i class="fa fa-fw fa-home"></i></a>
+                            <a href="#"><i class="fa fa-fw fa-download"></i></a>
+                            <a href="#"><i class="fa fa-fw fa-heart"></i></a>
+                            <a href="#"><i class="fa fa-fw fa-share"></i></a>
+                        </p>
+                    </figcaption>
+                </figure>
+                <figure class="effect-kira">
+                    <img src="https://tympanus.net/Development/HoverEffectIdeas/img/5.jpg" alt="img05" />
+                    <figcaption>
+                        <h2>Dark <span>Kira</span></h2>
+                        <p>
+                            <a href="#"><i class="fa fa-fw fa-home"></i></a>
+                            <a href="#"><i class="fa fa-fw fa-download"></i></a>
+                            <a href="#"><i class="fa fa-fw fa-heart"></i></a>
+                            <a href="#"><i class="fa fa-fw fa-share"></i></a>
+                        </p>
+                    </figcaption>
+                </figure>
+            </div>
+            <h2>Steve</h2>
+            <div class="grid">
+                <figure class="effect-steve">
+                    <img src="https://tympanus.net/Development/HoverEffectIdeas/img/29.jpg" alt="img29" />
+                    <figcaption>
+                        <h2>Lonely <span>Steve</span></h2>
+                        <p>Steve was afraid of the Boogieman.</p>
+                        <a href="#">View more</a>
+                    </figcaption>
+                </figure>
+                <figure class="effect-steve">
+                    <img src="https://tympanus.net/Development/HoverEffectIdeas/img/33.jpg" alt="img33" />
+                    <figcaption>
+                        <h2>Lonely <span>Steve</span></h2>
+                        <p>Steve was afraid of the Boogieman.</p>
+                        <a href="#">View more</a>
+                    </figcaption>
+                </figure>
+            </div>
+            <h2>Moses</h2>
+            <div class="grid">
+                <figure class="effect-moses">
+                    <img src="https://tympanus.net/Development/HoverEffectIdeas/img/24.jpg" alt="img24" />
+                    <figcaption>
+                        <h2>Cute <span>Moses</span></h2>
+                        <p>Moses loves to run after butterflies.</p>
+                        <a href="#">View more</a>
+                    </figcaption>
+                </figure>
+                <figure class="effect-moses">
+                    <img src="https://tympanus.net/Development/HoverEffectIdeas/img/20.jpg" alt="img20" />
+                    <figcaption>
+                        <h2>Cute <span>Moses</span></h2>
+                        <p>Moses loves to run after butterflies.</p>
+                        <a href="#">View more</a>
+                    </figcaption>
+                </figure>
+            </div> -->
+            <!-- <h2>Jazz</h2> -->
+            <div class="grid">
+                <figure class="effect-jazz">
+                    <img src="https://tympanus.net/Development/HoverEffectIdeas/img/25.jpg" alt="img25" />
+                    <figcaption>
+                        <h2> <span>ANIMAL HEALTH
+                        </span></h2>
+                        <p>Hilton Pharma is a leading company in Pakistan in Veterinary health care…</p>
+                        <a href="#">View more</a>
+                    </figcaption>
+                </figure>
+                <figure class="effect-jazz">
+                    <img src="https://tympanus.net/Development/HoverEffectIdeas/img/6.jpg" alt="img06" />
+                    <figcaption>
+                        <h2> <span>SOCIAL WELFARE</span></h2>
+                        <p>Hilton Pharma has been an active agent of change in the society. The Solar Ene...
+
+                        </p>
+                        <a href="#">View more</a>
+                    </figcaption>
+                </figure>
+            </div>
+            <!-- <h2>Ming</h2>
+            <div class="grid">
+                <figure class="effect-ming">
+                    <img src="https://tympanus.net/Development/HoverEffectIdeas/img/9.jpg" alt="img09" />
+                    <figcaption>
+                        <h2>Funny <span>Ming</span></h2>
+                        <p>Ming sits in the corner the whole day. She's into crochet.</p>
+                        <a href="#">View more</a>
+                    </figcaption>
+                </figure>
+                <figure class="effect-ming">
+                    <img src="https://tympanus.net/Development/HoverEffectIdeas/img/8.jpg" alt="img08" />
+                    <figcaption>
+                        <h2>Funny <span>Ming</span></h2>
+                        <p>Ming sits in the corner the whole day. She's into crochet.</p>
+                        <a href="#">View more</a>
+                    </figcaption>
+                </figure>
+            </div>
+            <h2>Lexi</h2>
+            <div class="grid">
+                <figure class="effect-lexi">
+                    <img src="https://tympanus.net/Development/HoverEffectIdeas/img/12.jpg" alt="img12" />
+                    <figcaption>
+                        <h2>Altruistic <span>Lexi</span></h2>
+                        <p>Each and every friend is special. Lexi won't hide a single cookie.</p>
+                        <a href="#">View more</a>
+                    </figcaption>
+                </figure>
+                <figure class="effect-lexi">
+                    <img src="https://tympanus.net/Development/HoverEffectIdeas/img/3.jpg" alt="img03" />
+                    <figcaption>
+                        <h2>Altruistic <span>Lexi</span></h2>
+                        <p>Each and every friend is special. Lexi won't hide a single cookie.</p>
+                        <a href="#">View more</a>
+                    </figcaption>
+                </figure>
+            </div> -->
+            <!-- <h2>Duke</h2> -->
+            <div class="grid">
+                <figure class="effect-duke">
+                    <img src="https://tympanus.net/Development/HoverEffectIdeas/img/27.jpg" alt="img27" />
+                    <figcaption>
+                        <h2> <span>DISTRIBUTION NETWORK
+                        </span></h2>
+                        <p>OUR DISTRIBUTION NETWORK COVERS MORE THAN 40,000+ PHARMACIES IN PAKISTAN
+
+                        </p>
+                        <a href="#">View more</a>
+                    </figcaption>
+                </figure>
+                <!-- <figure class="effect-duke">
+                    <img src="https://tympanus.net/Development/HoverEffectIdeas/img/17.jpg" alt="img17" />
+                    <figcaption>
+                        <h2>Messy <span>Duke</span></h2>
+                        <p>Duke is very bored. When he looks at the sky, he feels to run.</p>
+                        <a href="#">View more</a>
+                    </figcaption>
+                </figure> -->
+            </div>
+        </div>
+
+
+
+
+        <!-- image grid end -->
+
+
+
+
+        <!-- <div class="backgound-2" style="height: 500px; width: 100%; background-repeat: no-repeat; margin-bottom: -300px; color: aqua;">
+
+    </div> -->
+
+
+
+        <!-- partners -->
+        <h4 class="tagline" style="color: white;">OUR VALUABLE PARTNERS</h4>
+        <div class="slider">
+            <div class="slide-track">
+                <div class="slide">
+                    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/1.png" alt="" />
+                </div>
+                <div class="slide">
+                    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/2.png" alt="" />
+                </div>
+                <div class="slide">
+                    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/3.png" alt="" />
+                </div>
+                <div class="slide">
+                    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/4.png" alt="" />
+                </div>
+                <div class="slide">
+                    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/5.png" alt="" />
+                </div>
+                <div class="slide">
+                    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/6.png" alt="" />
+                </div>
+                <div class="slide">
+                    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/7.png" alt="" />
+                </div>
+                <div class="slide">
+                    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/1.png" alt="" />
+                </div>
+                <div class="slide">
+                    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/2.png" alt="" />
+                </div>
+                <div class="slide">
+                    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/3.png" alt="" />
+                </div>
+                <div class="slide">
+                    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/4.png" alt="" />
+                </div>
+                <div class="slide">
+                    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/5.png" alt="" />
+                </div>
+                <div class="slide">
+                    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/6.png" alt="" />
+                </div>
+                <div class="slide">
+                    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/7.png" alt="" />
+                </div>
+            </div>
+        </div>
+
+
+
+
+        <!-- partners end -->
+
+
+        <!-- FOOTER START -->
+        <div class="footer">
+            <div class="contain">
+                <div class="col">
+                    <h1>About</h1>
+                    <ul>
+                        <li>Chariman Message</li>
+                        <li>Mission</li>
+                        <li>Scope</li>
+                        <li>Social</li>
+                        <li>Our History</li>
+                    </ul>
+                </div>
+                <div class="col">
+                    <h1>Manufacturing</h1>
+                    <ul>
+                        <li>Our Facilities</li>
+                        <li>cGMP compaliance</li>
+                        <li>Quality Operations</li>
+                        <li>Quality policy</li>
+                        <!-- <li>Get in touch</li> -->
+                    </ul>
+                </div>
+                <div class="col">
+                    <h1>products</h1>
+                    <ul>
+                        <li>Human Range</li>
+                        <li>Veterniary</li>
+                        <!-- <li>Services</li>
+                        <li>Social</li>
+                        <li>Get in touch</li> -->
+                    </ul>
+                </div>
+                <div class="col">
+                    <h1>Human Resources</h1>
+                    <ul>
+                        <li>recruitment Fraud</li>
+                        <li>training and develoment</li>
+                        <li>Oppenings</li>
+                        <!-- <li>Site map</li>
+                        <li>Web templates</li>
+                        <li>Email templates</li> -->
+                    </ul>
+                </div>
+                <div class="col">
+                    <h1>Support</h1>
+                    <ul>
+                        <li>News & Events</li>
+                        <li>Partners</li>
+                        <li>Contact Us</li>
+                    </ul>
+                </div>
+                <div class="col social">
+                    <h1>Social</h1>
+                    <ul>
+                        <li><img src="assets/icons/18-185958_transparent-fb-icon-png-transparent-background-facebook-icon.png" width="32" style="width: 32px; border-radius: 20px;"></li>
+                        <li><img src="assets/icons/kisspng-computer-icons-logo-instagram-blog-akita-5b2ffdede302b4.9414355615298718539299.jpg" width="32" style="border-radius: 20px; width: 32px; background-color: black;"></li>
+                        <li><img src="assets/icons/33-336783_free-icons-png-gmail-icon-png-transparent-png.png" width="32" style="width: 32px; border-radius: 20px;"></li>
+                    </ul>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <section class="copy">
+                <div class="copy_text">
+                    <p>Copyright &copy; 2020</p>
+                    <p>Hilton Pharma</p>
+                </div>
+                <div class="terms">
+                    <a href="/terms.html">Terms of service</a>
+                    <a href="/privacy.html">Privacy policy</a>
+                </div>
+            </section>
+        </div>
+        <!-- END OF FOOTER -->
+
+
+
+
+</body>
+
+</html>
